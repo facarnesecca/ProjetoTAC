@@ -1,0 +1,24 @@
+[
+  { nome : "Elefante Africano",
+    peso : "8500",
+    pernas : "4"
+  },
+  { nome : "Elefante Asiatico",
+    peso : "4500"
+    pernas : "4"
+  },
+  { nome : "Rinoceronte",
+    peso : "2350",
+    pernas : "4"
+  },
+  {
+   nome : "Hipopótamo",
+   peso "2500",
+   pernas : "4"
+  },
+  {
+   nome : "bisão indiano",
+   peso : "1600",
+   pernas : "4"
+  }
+]

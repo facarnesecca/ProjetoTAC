@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @RenderBody()
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+
+
+    <div id="container">
+        <header>
+            <img src="~/Content/img/FAC.jpg" />
+        </header>
+        <nav>
+            <div> Pessoas Novo</div>
+            <div> Pessoa Listar</div>
+            <div> Endereço Novo</div>
+            <div> Endereço Listar </div>
+            <div> Cidade Novo </div>
+            <div> Cidade Listar</div>
+            <div> Usuário Listar</div>
+        </nav>
+        <section id="section"></section>
+    </div>
+
+    <div id="progress">
+        <img src="~/Content/img/ajax-loader-2.gif" />
+    </div>
+
+</body>
+</html>

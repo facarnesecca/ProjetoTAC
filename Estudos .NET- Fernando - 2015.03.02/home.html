@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="style/estrutura.css">
+    <meta charset="utf-8" />
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <img src="img/logo.png" />
+    </header>
+    <nav>
+        <div>HOME</div>
+        <div>Lista</div>
+        <div>Cadastro</div>
+        <footer></footer>
+    </nav>
+    <section>
+        <h1>Cadastro</h1>
+        <article>
+
+            <form id="form" action="">
+                <div class="campos">
+                    <label itemid="edTitulo">Titulo</label>
+                    <input type="text" id="edTitulo" name="edTiulo" placeholder="Titulo da obra" required />
+                </div>
+                <div class="campos">
+                    <label itemid="edAutor">Autor</label>
+                    <input type="text" id="edAutor" name="edAutor" placeholder="Autor da obra" required />
+                </div>
+                <div class="campos">
+                    <label itemid="edDescricao">Descrição</label>
+                    <textarea id="edDescricao" name="edDescricao" placeholder="Descrição do produto"></textarea>
+                </div>
+                <div class="campos">
+                    <label itemid="edPreco">Preço</label>
+                    <input type="number" min="0" step="0.10" id="edPreco" name="edPreco" placeholder="Preço" required />
+                </div>
+                <div class="campos">
+                    <label itemid="edData">Data de Publicação</label>
+                    <input type="date" id="edData" name="edData" />
+                </div>
+                <div class="campos">
+                    <label itemid="edCodigo">Código</label>
+                    <input type="number" min="0" max="999999999" id="edCodigo" name="edCodigo" placeholder="Código de barra" />
+                </div>
+                <div class="campos">
+                    <label itemid="edPais">País</label>
+                    <select id="edPais" name="edPais">
+                        <option value="Brasil">Brasil</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="China">China</option>
+                        <option value="Panama">Panama</option>
+                    </select>
+                </div>
+                <div class="campos">
+                    <label itemid="edLink">Autor</label>
+                    <input type="text" id="edLink" name="edLink" placeholder="Link do fabricante" />
+                </div>
+                <div class="campos">
+                    <input type="submit" />
+                </div>
+            </form>
+        </article>
+    </section>
+    <footer></footer>
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿:root {
+    --fontColor: #0b6813;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1 {
+    font-weight: bold;
+    border-bottom: solid 1px var(--fontColor);
+    color: #0b6813;
+}
+header {
+    background-color: #eee;  
+}
+header img {
+    margin: 4px;
+}
+nav {
+    background-color: #ddd;
+    padding: 4px;
+}
+    nav div {
+        padding: 2px 6px;
+        border-right: 1px solid black;
+        float: left;
+        cursor: pointer;
+    }
+    nav div:hover {
+        padding: 2px 6px;
+        border-right: 1px solid black;
+        float: left;
+        cursor: pointer;
+        background-color: #ccc;
+        color: #fff;
+    }
+    nav footer {
+        clear: both;
+    }
+section {
+    padding-left: 15px;
+    margin-top: 15px;
+}
+
+.campos {
+    
+    margin-top: 10px;
+}
+    .campos :first-child {
+        font-size: 12px;
+        color: var(--fontColor);
+    }
+    .campos :last-child {
+        display: block;
+        min-height: 30px;
+        min-width: 300px;
+        text-indent: 10px;     
+    }

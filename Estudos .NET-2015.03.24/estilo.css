@@ -1,0 +1,56 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+.clear {
+    clear: both;
+}
+/*DIV PRINCIPAL PARA CENTRALIZAR */
+#container {
+    background-color: #ccc;
+    width: 900px;
+    height: auto;
+    margin: 0 auto;
+}
+/*TOPO DA PAGINA*/
+header {
+   background-color: #2F2F2F;
+   width: 100%;
+   height: 80px; 
+}
+    header img {
+      height: 60px;
+      margin: 10px;
+      border:  2px solid #fff; 
+    }
+/*BARRA DE NAVEGAÇÃO (MENU) */
+nav {
+   background-color: orange;
+   width: 100%;
+   height: 30px;
+}
+    nav div {
+        width: 70px;
+        margin: 3px;
+        float: left;
+        border-right: solid 2px black;
+        text-align: center;
+        cursor: pointer;
+    }
+    nav div:hover{
+        background-color: #777;
+        color: white;
+        cursor: pointer;
+    }
+/*CONTEUDO PRINCIPAL*/
+section {
+   background-color: #FFF111;
+   width: 100%;
+   height: auto;
+}
+/*RODAPÉ*/
+footer {
+   background-color: #eee ;
+   width: 100%;
+   height: 40px;
+}
