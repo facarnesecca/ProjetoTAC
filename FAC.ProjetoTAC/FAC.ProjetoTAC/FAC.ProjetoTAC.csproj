@@ -127,11 +127,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Basic\BasicController.cs" />
+    <Compile Include="Controllers\FabioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Cidade.cs" />
     <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\Fabio.cs" />
+    <Compile Include="Models\FabioDBContext.cs" />
     <Compile Include="Models\Pessoa.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -223,6 +226,11 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Basic\Basic.cshtml" />
+    <Content Include="Views\Fabio\Index.cshtml" />
+    <Content Include="Views\Fabio\Details.cshtml" />
+    <Content Include="Views\Fabio\Create.cshtml" />
+    <Content Include="Views\Fabio\Edit.cshtml" />
+    <Content Include="Views\Fabio\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

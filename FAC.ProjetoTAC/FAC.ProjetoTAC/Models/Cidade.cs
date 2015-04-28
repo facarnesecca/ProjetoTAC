@@ -20,37 +20,43 @@ namespace Fabio.ProjetoTAC.Models
         [EnumDataType(typeof(EstadosUF))]
         public string UF { get; set; }
 
+        [Display(Name = "Estado2")]
+        [EnumDataType(typeof(EstadosUF))]
+        public EstadosUF UF2 { get; set; }
+
+
+
+        public enum EstadosUF
+        {
+            AC, // Acre
+            AL, // Alagoas
+            AP, // Amapá
+            AM, // Amazonas
+            BA, // Bahia
+            CE, // Ceará
+            DF, // Distrito Federal
+            ES, // Espírito Santo
+            GO, // Goiás
+            MA, // Maranhão
+            MT, // Mato Grosso
+            MS, // Mato Grosso do Sul
+            MG, // Minas Gerais
+            PA, // Pará
+            PB, // Paraíba
+            PR, // Paraná
+            PE, // Pernambuco
+            PI, // Piauí
+            RR, // Roraima
+            RO, // Rondônia
+            RJ, // Rio de Janeiro
+            RN, // Rio Grande do Norte
+            RS, // Rio Grande do Sul
+            SC, // Santa Catarina
+            SP, // São Paulo
+            SE, // Sergipe
+            TO // Tocantins
+
+        }
+
     }
-}
-
-public enum EstadosUF
-{
-    AC, // Acre
-    AL, // Alagoas
-    AP, // Amapá
-    AM, // Amazonas
-    BA, // Bahia
-    CE, // Ceará
-    DF, // Distrito Federal
-    ES, // Espírito Santo
-    GO, // Goiás
-    MA, // Maranhão
-    MT, // Mato Grosso
-    MS, // Mato Grosso do Sul
-    MG, // Minas Gerais
-    PA, // Pará
-    PB, // Paraíba
-    PR, // Paraná
-    PE, // Pernambuco
-    PI, // Piauí
-    RR, // Roraima
-    RO, // Rondônia
-    RJ, // Rio de Janeiro
-    RN, // Rio Grande do Norte
-    RS, // Rio Grande do Sul
-    SC, // Santa Catarina
-    SP, // São Paulo
-    SE, // Sergipe
-    TO // Tocantins
-
 }
