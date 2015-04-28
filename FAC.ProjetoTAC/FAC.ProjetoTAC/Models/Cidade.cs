@@ -20,6 +20,10 @@ namespace Fabio.ProjetoTAC.Models
         [EnumDataType(typeof(EstadosUF))]
         public string UF { get; set; }
 
+        [Display(Name = "Estado2")]
+        [EnumDataType(typeof(EstadosUF))]
+        public EstadosUF UF2 { get; set; }
+
     }
 }
 
