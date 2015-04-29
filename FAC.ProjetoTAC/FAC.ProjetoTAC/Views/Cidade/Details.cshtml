@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalhes da Cidade</h2>
 
 <fieldset>
     <legend>Cidade</legend>
@@ -24,7 +24,7 @@
     </div>
 </fieldset>
 <div>
-    <div>
+    <div class="editar" >
 
         @Ajax.ActionLink("Editar", "../Cidade/Edit/", new { id = Model.id }
                                                      ,new AjaxOptions
@@ -34,7 +34,7 @@
                                                              LoadingElementId = "progress"
                                                          })
     </div>
-    |
+    
     <div class="voltar">
         @Ajax.ActionLink("Voltar", "../Cidade/Index", new AjaxOptions
                                                          {

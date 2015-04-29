@@ -1,12 +1,12 @@
 ﻿@model Fabio.ProjetoTAC.Models.Cidade
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Excluir Cidade";
 }
 
-<h2>Delete</h2>
+<h2>Excluir a Cidade</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza de que deseja excluir?</h3>
 <fieldset>
     <legend>Cidade</legend>
 
@@ -27,7 +27,16 @@
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        <input type="submit" value="Delete" /> 
     </p>
+
+    <div class="voltar">
+        @Ajax.ActionLink("Voltar", "../Cidade/Index", new AjaxOptions
+                                                         {
+                                                             InsertionMode = InsertionMode.Replace,
+                                                             UpdateTargetId = "section",
+                                                             LoadingElementId = "progress"
+                                                         })
+    </div>
+
 }

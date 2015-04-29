@@ -1,12 +1,12 @@
 ﻿@model Fabio.ProjetoTAC.Models.Cidade
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Cadastrar Nova Cidade";
 }
 
-<h2></h2>
+<h2>Cadastra uma nova Cidade</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Basic","Basic")) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -30,12 +30,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Cadastrar" />
         </p>
     </fieldset>
 }
 
 <div class="voltar">
+    
     @Html.ActionLink("Voltar", "../Basic/")
 </div>
 

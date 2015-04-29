@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Dados da Cidade</h2>
 
 <div class="novo">
     @Ajax.ActionLink("Novo", "../Cidade/Create", new AjaxOptions
@@ -15,7 +15,7 @@
                                                          })
 </div>
 
-<table border="1">
+<table >
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.nome)
@@ -52,7 +52,14 @@
                                                              LoadingElementId = "progress"
                                                          })
                 |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                @Ajax.ActionLink("Excluir", "../Cidade/Delete/", new { id = item.id }
+                                                     , new AjaxOptions
+                                                         {
+                                                             InsertionMode = InsertionMode.Replace,
+                                                             UpdateTargetId = "section",
+                                                             LoadingElementId = "progress"
+                                                         })
+
             </td>
         </tr>
     }

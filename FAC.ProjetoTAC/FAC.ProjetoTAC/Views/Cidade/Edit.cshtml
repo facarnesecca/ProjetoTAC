@@ -4,9 +4,10 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Editar Cidade</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Basic", "Basic"))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -32,7 +33,7 @@
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Alterar" />
         </p>
     </fieldset>
 }
