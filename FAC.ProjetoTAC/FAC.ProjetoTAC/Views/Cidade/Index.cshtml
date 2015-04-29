@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Fabio.ProjetoTAC.Models.Cidade>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="novo">
+    @Ajax.ActionLink("Novo", "../Cidade/Create", new AjaxOptions
+                                                         {
+                                                             InsertionMode = InsertionMode.Replace,
+                                                             UpdateTargetId = "section",
+                                                             LoadingElementId = "progress"
+                                                         })
+</div>
+
+<table border="1">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UF)
+        </th>
+        <th>Ação</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UF)
+            </td>
+            <td>
+                @Ajax.ActionLink("Editar", "../Cidade/Edit/", new { id = item.id }
+                                                     , new AjaxOptions
+                                                         {
+                                                             InsertionMode = InsertionMode.Replace,
+                                                             UpdateTargetId = "section",
+                                                             LoadingElementId = "progress"
+                                                         })
+                |
+                @Ajax.ActionLink("Detalhes", "../Cidade/Details/", new { id = item.id }
+                                                     , new AjaxOptions
+                                                         {
+                                                             InsertionMode = InsertionMode.Replace,
+                                                             UpdateTargetId = "section",
+                                                             LoadingElementId = "progress"
+                                                         })
+                |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,51 @@
+﻿@model Fabio.ProjetoTAC.Models.Cidade
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Cidade</legend>
+
+        @Html.HiddenFor(model => model.id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nome)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nome)
+            @Html.ValidationMessageFor(model => model.nome)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UF)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UF)
+            @Html.ValidationMessageFor(model => model.UF)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div class="voltar">
+    @Ajax.ActionLink("Voltar", "../Cidade/Index", new AjaxOptions
+                                                         {
+                                                             InsertionMode = InsertionMode.Replace,
+                                                             UpdateTargetId = "section",
+                                                             LoadingElementId = "progress"
+                                                         })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

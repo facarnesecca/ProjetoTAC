@@ -1,35 +1,47 @@
-﻿
+﻿@model Fabio.ProjetoTAC.Models.Cidade
+
 @{
-    ViewBag.Title = "FAC - Fabio Andrucioli Carnesecca";
+    ViewBag.Title = "Details";
 }
 
-<div id="container">
-    <header>
-        <img src="~/Content/img/FAC.jpg" />
-    </header>
-    <nav>
-        <div> Pessoas Novo</div>
-        <div> Pessoa Listar</div>
-        <div> Endereço Novo</div>
-        <div> Endereço Listar </div>
-        <div>
-            @Ajax.ActionLink("Cidade Novo", "../Cidade/Create", new AjaxOptions
-                                                         {
-                                                             InsertionMode = InsertionMode.Replace,
-                                                             UpdateTargetId = "section",
-                                                             LoadingElementId = "progress"
-                                                         })
-        </div>
-        <div>
-            @Ajax.ActionLink("Cidade Listar", "../Cidade/Index", new AjaxOptions
-                                                         {
-                                                             InsertionMode = InsertionMode.Replace,
-                                                             UpdateTargetId = "section",
-                                                             LoadingElementId = "progress"
-                                                         })
+<h2>Details</h2>
 
-        </div>
-        <div> Usuário Listar</div>
-    </nav>
-    <section id="section"></section>
+<fieldset>
+    <legend>Cidade</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nome)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.UF)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UF)
+    </div>
+</fieldset>
+<div>
+    <div>
+
+        @Ajax.ActionLink("Editar", "../Cidade/Edit/", new { id = Model.id }
+                                                     ,new AjaxOptions
+                                                         {
+                                                             InsertionMode = InsertionMode.Replace,
+                                                             UpdateTargetId = "section",
+                                                             LoadingElementId = "progress"
+                                                         })
+    </div>
+    |
+    <div class="voltar">
+        @Ajax.ActionLink("Voltar", "../Cidade/Index", new AjaxOptions
+                                                         {
+                                                             InsertionMode = InsertionMode.Replace,
+                                                             UpdateTargetId = "section",
+                                                             LoadingElementId = "progress"
+                                                         })
+    </div>
+
 </div>

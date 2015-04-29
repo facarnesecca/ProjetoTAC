@@ -21,21 +21,23 @@ header, footer, nav, section {
 }
 /*TOPO DA PAGINA*/
 header {
-   background-color: #bbb;
-   width: 100%;
-   height: 80px; 
+    background-color: #bbb;
+    width: 100%;
+    height: 80px;
 }
+
     header img {
-      height: 60px;
-      margin: 10px;
-      border:  2px solid #fff; 
+        height: 60px;
+        margin: 10px;
+        border: 2px solid #fff;
     }
 /*BARRA DE NAVEGAÇÃO (MENU) */
 nav {
-   background-color: #999;
-   width: 100%;
-   height: 30px;
+    background-color: #999;
+    width: 100%;
+    height: 30px;
 }
+
     nav div {
         width: 120px;
         margin: 3px;
@@ -44,28 +46,53 @@ nav {
         text-align: center;
         cursor: pointer;
         font-size: 16px;
-        
     }
-    nav div:hover{
-        background-color: #60a6ea;
-        color: white;
-        cursor: pointer;
-        font-size: 18px,;
-        font-weight:bold;
-    }
+
+        nav div:hover {
+            background-color: #60a6ea;
+            color: white;
+            cursor: pointer;
+            font-size: 18px,;
+            font-weight: bold;
+        }
+
+        nav div a {
+            text-decoration: none;
+        }
 /*CONTEUDO PRINCIPAL*/
 section {
-   background-color: #eee;
-   width: 100%;
-   height: 500px;
+    background-color: #eee;
+    width: 100%;
+    height: 500px;
 }
 
 #progress {
     display: none;
-    margin: 0 auto;
-    background-color:#ddd;
+    background-color: #CCC;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    
 }
 
+.voltar {
+    text-decoration: none;
+    
+    background-color: green;
+    font-weight: bold;
+    color: #FFF;
+    width: 60px;
+    height: auto;
+    text-align: center;
+}
+
+.novo {
+     text-decoration: none;
+}
+
+a {
+     text-decoration: none;
+}
 /* Styles for basic forms
 -----------------------------------------------------------*/
 fieldset {
@@ -115,7 +142,3 @@ textarea {
 .validation-summary-valid {
     display: none;
 }
-
-
-
-
