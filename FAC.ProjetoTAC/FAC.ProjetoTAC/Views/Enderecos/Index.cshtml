@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Fabio.ProjetoTAC.Models.Endereco>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CEP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.logra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idcidade)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CEP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.logra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idcidade)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idendereco }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idendereco }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idendereco })
+        </td>
+    </tr>
+}
+
+</table>

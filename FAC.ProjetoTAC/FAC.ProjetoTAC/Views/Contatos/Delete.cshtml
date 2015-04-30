@@ -1,0 +1,89 @@
+﻿@model FAC.ProjetoTAC.Models.Contato
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Contato</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CPF)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CPF)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nascimento)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nascimento)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Telefone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telefone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.documento)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.documento)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Detalhes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Detalhes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.idendereco)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idendereco)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.numero)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.numero)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.complemento)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.complemento)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

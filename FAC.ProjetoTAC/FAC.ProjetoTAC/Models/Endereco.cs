@@ -10,7 +10,7 @@ namespace Fabio.ProjetoTAC.Models
     public class Endereco
     {
         [Key]
-        public int idEndereco { get; set; }
+        public int idendereco { get; set; }
 
         
         [Display (Name = "CEP")]
@@ -22,15 +22,11 @@ namespace Fabio.ProjetoTAC.Models
         [StringLength(500, MinimumLength = 5, ErrorMessage = "O Logradouro deve term pelo menos 5 cacter")]
         public string logra { get; set; }
 
-        
-        [Display (Name = "Número")]
-        public string numero { get; set; }
-
-        [Display(Name = "Complemento")]
-        public string complemento { get; set; }
 
         [Display(Name = "Cidade")]
-        public Cidade Cidades { get; set; }
+        [UIHint("Create")]
+        public int idcidade{ get; set; }
+
         
 
     }

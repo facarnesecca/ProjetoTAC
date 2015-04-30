@@ -1,0 +1,54 @@
+﻿@model Fabio.ProjetoTAC.Models.Endereco
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Endereco</legend>
+
+        @Html.HiddenFor(model => model.idendereco)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CEP)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CEP)
+            @Html.ValidationMessageFor(model => model.CEP)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.logra)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.logra)
+            @Html.ValidationMessageFor(model => model.logra)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.idcidade)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.idcidade)
+            @Html.ValidationMessageFor(model => model.idcidade)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

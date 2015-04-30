@@ -1,0 +1,85 @@
+﻿@model FAC.ProjetoTAC.Models.Contato
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Contato</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CPF)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CPF)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nascimento)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nascimento)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Telefone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Telefone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.documento)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.documento)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Detalhes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Detalhes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.idendereco)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idendereco)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.numero)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.numero)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.complemento)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.complemento)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.idcontato }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -5,22 +5,118 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    @*@Styles.Render("~/Content/bootstrap")*@
     @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("css", required: false)
 </head>
 <body>
-    @RenderBody()
-
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("scripts", required: false)
 
 
-    
-    <div id="progress">
-        <img src="~/Content/img/ajax-loader-2.gif" />
-    </div>
+
+    <div id="container">
+        <header>
+            <a href='@Url.Action("Basic", "Basic")'>
+                <img src="~/Content/img/FAC.jpg" />
+            </a>
+        </header>
+        <nav>
+
+            <div>@Html.ActionLink("Contato Novo","Create","Contatos")
+                
+                @*@Ajax.ActionLink("Contato Novo", "../Contatos/Create/"
+                    , new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "section",
+                        LoadingElementId = "progress"
+                    })*@
+            </div>
+            <div> @Html.ActionLink("Contato Lista", "Index", "Contatos")
+                @*@Ajax.ActionLink("Contato Listar", "../Contatos/Index/"
+                                    , new AjaxOptions
+                                    {
+                                        InsertionMode = InsertionMode.Replace,
+                                        UpdateTargetId = "section",
+                                        LoadingElementId = "progress"
+                                    })*@
+            </div>
+            <div> @Html.ActionLink("Endereco Novo", "Create", "Enderecos")
+                @*@Ajax.ActionLink("Endereco Novo", "../Enderecos/Create/"
+                    , new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "section",
+                        LoadingElementId = "progress"
+                    })*@
+            </div>
+            <div> @Html.ActionLink("Endereco Lista", "Index", "Enderecos")
+                @*@Ajax.ActionLink("Endereco Listar", "../Enderecos/Index/"
+                                    , new AjaxOptions
+                                    {
+                                        InsertionMode = InsertionMode.Replace,
+                                        UpdateTargetId = "section",
+                                        LoadingElementId = "progress"
+                                    })*@
+            </div>
+            <div> @Html.ActionLink("Cidade Novo", "Create", "Cidades")
+                @*@Ajax.ActionLink("Cidade Novo", "../Cidades/Create/"
+                    , new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "section",
+                        LoadingElementId = "progress"
+                    })*@
+            </div>
+            <div> @Html.ActionLink("Cidade Lista", "Index", "Cidades")
+                @*@Ajax.ActionLink("Cidade Listar", "../Cidades/Index/"
+                    , new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "section",
+                        LoadingElementId = "progress"
+                    })*@
+            </div>
+            <div>
+                @Ajax.ActionLink("UF Novo", "../Estados/Create/"
+                    , new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "section",
+                        LoadingElementId = "progress"
+                    })
+            </div>
+            <div> @Html.ActionLink("Estado Lista", "Index", "Estados")
+                @*@Ajax.ActionLink("UF Listar", "../Estados/Index/"
+                                    , new AjaxOptions
+                                    {
+                                        InsertionMode = InsertionMode.Replace,
+                                        UpdateTargetId = "section",
+                                        LoadingElementId = "progress"
+                                    })*@
+            </div>
+
+
+        </nav>
+
+
+        <section id="section"></section>
+
+        <div class="container body-content" id="section">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy;1979 - Fabio Andrucioli Carnesecca</p>
+            </footer>
+        </div>
+
+        <div id="progress">
+            <img src="~/Content/img/ajax-loader-2.gif" />
+        </div>
 
 </body>
 </html>

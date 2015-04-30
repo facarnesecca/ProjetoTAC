@@ -1,35 +1,8 @@
 ﻿
 @{
     ViewBag.Title = "FAC - Fabio Andrucioli Carnesecca";
+  
 }
 
-<div id="container">
-    <header>
-        <img src="~/Content/img/FAC.jpg" />
-    </header>
-    <nav>
-        <div> Pessoas Novo</div>
-        <div> Pessoa Listar</div>
-        <div> Endereço Novo</div>
-        <div> Endereço Listar </div>
-        <div>
-            @Ajax.ActionLink("Cidade Novo", "../Cidade/Create", new AjaxOptions
-                                                         {
-                                                             InsertionMode = InsertionMode.Replace,
-                                                             UpdateTargetId = "section",
-                                                             LoadingElementId = "progress"
-                                                         })
-        </div>
-        <div>
-            @Ajax.ActionLink("Cidade Listar", "../Cidade/Index", new AjaxOptions
-                                                         {
-                                                             InsertionMode = InsertionMode.Replace,
-                                                             UpdateTargetId = "section",
-                                                             LoadingElementId = "progress"
-                                                         })
 
-        </div>
-        <div> Usuário Listar</div>
-    </nav>
-    <section id="section"></section>
 </div>

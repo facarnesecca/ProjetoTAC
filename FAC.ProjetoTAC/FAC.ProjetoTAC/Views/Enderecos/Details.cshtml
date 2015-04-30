@@ -1,0 +1,36 @@
+﻿@model Fabio.ProjetoTAC.Models.Endereco
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Endereco</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CEP)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CEP)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.logra)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.logra)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.idcidade)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idcidade)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.idendereco }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
