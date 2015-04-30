@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelProjeto.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelProjetoStoreContainer">
+    <EntitySet Name="Cidades" EntityType="ModelProjeto.Store.Cidades" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Enderecos" EntityType="ModelProjeto.Store.Enderecos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contatos" EntityType="ModelProjeto.Store.Contatos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Estados" EntityType="ModelProjeto.Store.Estados" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="EstadoCidade" Association="ModelProjeto.Store.EstadoCidade">
+      <End Role="Estado" EntitySet="Estados" />
+      <End Role="Cidade" EntitySet="Cidades" />
+    </AssociationSet>
+    <AssociationSet Name="CidadeEndereco" Association="ModelProjeto.Store.CidadeEndereco">
+      <End Role="Cidade" EntitySet="Cidades" />
+      <End Role="Endereco" EntitySet="Enderecos" />
+    </AssociationSet>
+    <AssociationSet Name="EnderecoContato" Association="ModelProjeto.Store.EnderecoContato">
+      <End Role="Endereco" EntitySet="Enderecos" />
+      <End Role="Contato" EntitySet="Contatos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Cidades">
+    <Key>
+      <PropertyRef Name="idCidade" />
+    </Key>
+    <Property Name="idCidade" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Estado1_Iduf" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Enderecos">
+    <Key>
+      <PropertyRef Name="IdEndereco" />
+    </Key>
+    <Property Name="IdEndereco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CEP" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cidade_idCidade" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contatos">
+    <Key>
+      <PropertyRef Name="IdContato" />
+    </Key>
+    <Property Name="IdContato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DtNacimento" Type="datetime" Nullable="true" />
+    <Property Name="CPF" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RG" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Detalhes" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Numero" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Compelmento" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Endereco_IdEndereco" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estados">
+    <Key>
+      <PropertyRef Name="Iduf" />
+    </Key>
+    <Property Name="Iduf" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UF" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="EstadoCidade">
+    <End Role="Estado" Type="ModelProjeto.Store.Estados" Multiplicity="1" />
+    <End Role="Cidade" Type="ModelProjeto.Store.Cidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Iduf" />
+      </Principal>
+      <Dependent Role="Cidade">
+        <PropertyRef Name="Estado1_Iduf" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CidadeEndereco">
+    <End Role="Cidade" Type="ModelProjeto.Store.Cidades" Multiplicity="1" />
+    <End Role="Endereco" Type="ModelProjeto.Store.Enderecos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cidade">
+        <PropertyRef Name="idCidade" />
+      </Principal>
+      <Dependent Role="Endereco">
+        <PropertyRef Name="Cidade_idCidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EnderecoContato">
+    <End Role="Endereco" Type="ModelProjeto.Store.Enderecos" Multiplicity="1" />
+    <End Role="Contato" Type="ModelProjeto.Store.Contatos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Endereco">
+        <PropertyRef Name="IdEndereco" />
+      </Principal>
+      <Dependent Role="Contato">
+        <PropertyRef Name="Endereco_IdEndereco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelProjeto" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelProjetoContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cidades" EntityType="ModelProjeto.Cidade" />
+          <EntitySet Name="Enderecos" EntityType="ModelProjeto.Endereco" />
+          <EntitySet Name="Contatos" EntityType="ModelProjeto.Contato" />
+          <EntitySet Name="Estados" EntityType="ModelProjeto.Estado" />
+          <AssociationSet Name="EstadoCidade" Association="ModelProjeto.EstadoCidade">
+            <End Role="Estado" EntitySet="Estados" />
+            <End Role="Cidade" EntitySet="Cidades" />
+          </AssociationSet>
+          <AssociationSet Name="CidadeEndereco" Association="ModelProjeto.CidadeEndereco">
+            <End Role="Cidade" EntitySet="Cidades" />
+            <End Role="Endereco" EntitySet="Enderecos" />
+          </AssociationSet>
+          <AssociationSet Name="EnderecoContato" Association="ModelProjeto.EnderecoContato">
+            <End Role="Endereco" EntitySet="Enderecos" />
+            <End Role="Contato" EntitySet="Contatos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cidade">
+          <Key>
+            <PropertyRef Name="idCidade" />
+          </Key>
+          <Property Name="idCidade" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="true" />
+          <NavigationProperty Name="Estado1" Relationship="ModelProjeto.EstadoCidade" FromRole="Cidade" ToRole="Estado" />
+          <NavigationProperty Name="Endereco" Relationship="ModelProjeto.CidadeEndereco" FromRole="Cidade" ToRole="Endereco" />
+        </EntityType>
+        <EntityType Name="Endereco">
+          <Key>
+            <PropertyRef Name="IdEndereco" />
+          </Key>
+          <Property Name="IdEndereco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="CEP" Type="String" Nullable="false" />
+          <NavigationProperty Name="Cidade" Relationship="ModelProjeto.CidadeEndereco" FromRole="Endereco" ToRole="Cidade" />
+          <NavigationProperty Name="Contato" Relationship="ModelProjeto.EnderecoContato" FromRole="Endereco" ToRole="Contato" />
+        </EntityType>
+        <EntityType Name="Contato">
+          <Key>
+            <PropertyRef Name="IdContato" />
+          </Key>
+          <Property Name="IdContato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Telefone" Type="String" Nullable="true" />
+          <Property Name="Email" Type="String" Nullable="true" />
+          <Property Name="DtNacimento" Type="DateTime" Nullable="true" />
+          <Property Name="CPF" Type="String" Unicode="true" Nullable="true" />
+          <Property Name="RG" Type="String" Nullable="true" />
+          <Property Name="Detalhes" Type="String" Nullable="true" />
+          <NavigationProperty Name="Endereco" Relationship="ModelProjeto.EnderecoContato" FromRole="Contato" ToRole="Endereco" />
+          <Property Name="Numero" Type="String" Nullable="true" />
+          <Property Name="Compelmento" Type="String" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="Iduf" />
+          </Key>
+          <Property Name="Iduf" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UF" Type="String" Nullable="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
+          <NavigationProperty Name="Cidade1" Relationship="ModelProjeto.EstadoCidade" FromRole="Estado" ToRole="Cidade" />
+        </EntityType>
+        <Association Name="EstadoCidade">
+          <End Type="ModelProjeto.Estado" Role="Estado" Multiplicity="1" />
+          <End Type="ModelProjeto.Cidade" Role="Cidade" Multiplicity="*" />
+        </Association>
+        <Association Name="CidadeEndereco">
+          <End Type="ModelProjeto.Cidade" Role="Cidade" Multiplicity="1" />
+          <End Type="ModelProjeto.Endereco" Role="Endereco" Multiplicity="*" />
+        </Association>
+        <Association Name="EnderecoContato">
+          <End Type="ModelProjeto.Endereco" Role="Endereco" Multiplicity="1" />
+          <End Type="ModelProjeto.Contato" Role="Contato" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelProjetoStoreContainer" CdmEntityContainer="ModelProjetoContainer">
+    <EntitySetMapping Name="Cidades">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProjeto.Cidade)">
+        <MappingFragment StoreEntitySet="Cidades">
+          <ScalarProperty Name="idCidade" ColumnName="idCidade" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enderecos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProjeto.Endereco)">
+        <MappingFragment StoreEntitySet="Enderecos">
+          <ScalarProperty Name="IdEndereco" ColumnName="IdEndereco" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contatos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProjeto.Contato)">
+        <MappingFragment StoreEntitySet="Contatos">
+          <ScalarProperty Name="IdContato" ColumnName="IdContato" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DtNacimento" ColumnName="DtNacimento" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="Detalhes" ColumnName="Detalhes" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Compelmento" ColumnName="Compelmento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estados">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProjeto.Estado)">
+        <MappingFragment StoreEntitySet="Estados">
+          <ScalarProperty Name="Iduf" ColumnName="Iduf" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EstadoCidade" TypeName="ModelProjeto.EstadoCidade" StoreEntitySet="Cidades">
+      <EndProperty Name="Estado">
+        <ScalarProperty Name="Iduf" ColumnName="Estado1_Iduf" />
+      </EndProperty>
+      <EndProperty Name="Cidade">
+        <ScalarProperty Name="idCidade" ColumnName="idCidade" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CidadeEndereco" TypeName="ModelProjeto.CidadeEndereco" StoreEntitySet="Enderecos">
+      <EndProperty Name="Cidade">
+        <ScalarProperty Name="idCidade" ColumnName="Cidade_idCidade" />
+      </EndProperty>
+      <EndProperty Name="Endereco">
+        <ScalarProperty Name="IdEndereco" ColumnName="IdEndereco" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EnderecoContato" TypeName="ModelProjeto.EnderecoContato" StoreEntitySet="Contatos">
+      <EndProperty Name="Endereco">
+        <ScalarProperty Name="IdEndereco" ColumnName="Endereco_IdEndereco" />
+      </EndProperty>
+      <EndProperty Name="Contato">
+        <ScalarProperty Name="IdContato" ColumnName="IdContato" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - FAC - PRojeto TAC</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img id="imgbanner" src="~/Content/img/FAC.jpg" />
+                @Html.ActionLink("FAC", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Contato
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                @Ajax.ActionLink("Novo", "../Contatos/Create/"
+                               , new AjaxOptions
+                                   {
+                                       InsertionMode = InsertionMode.Replace,
+                                       UpdateTargetId = "section",
+                                       LoadingElementId = "progress"
+                                   })
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                @Ajax.ActionLink("Listar", "../Contatos/Index/"
+                                , new AjaxOptions
+                                {
+                                    InsertionMode = InsertionMode.Replace,
+                                    UpdateTargetId = "section",
+                                    LoadingElementId = "progress"
+                                })
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Endereço
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                @Ajax.ActionLink("Novo", "../Enderecos/Create/"
+                               , new AjaxOptions
+                                   {
+                                       InsertionMode = InsertionMode.Replace,
+                                       UpdateTargetId = "section",
+                                       LoadingElementId = "progress"
+                                   })
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                @Ajax.ActionLink("Listar", "../Enderecos/Index/"
+                                , new AjaxOptions
+                                {
+                                    InsertionMode = InsertionMode.Replace,
+                                    UpdateTargetId = "section",
+                                    LoadingElementId = "progress"
+                                })
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Cidade
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                @Ajax.ActionLink("Novo", "../Cidades/Create/"
+                               , new AjaxOptions
+                                   {
+                                       InsertionMode = InsertionMode.Replace,
+                                       UpdateTargetId = "section",
+                                       LoadingElementId = "progress"
+                                   })
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                @Ajax.ActionLink("Listar", "../Cidades/Index/"
+                                    , new AjaxOptions
+                                    {
+                                        InsertionMode = InsertionMode.Replace,
+                                        UpdateTargetId = "section",
+                                        LoadingElementId = "progress"
+                                    })
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Estado
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                @Ajax.ActionLink("Novo", "../Estados/Create/"
+                               , new AjaxOptions
+                                   {
+                                       InsertionMode = InsertionMode.Replace,
+                                       UpdateTargetId = "section",
+                                       LoadingElementId = "progress"
+                                   })
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                @Ajax.ActionLink("Listar", "../Estados/Index/"
+                               , new AjaxOptions
+                                   {
+                                       InsertionMode = InsertionMode.Replace,
+                                       UpdateTargetId = "section",
+                                       LoadingElementId = "progress"
+                                   })
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+</div>
+        </div>
+    </div>
+
+    <div class="container body-content" id="section">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy;1979 - Fabio Andrucioli Carnesecca</p>
+        </footer>
+    </div>
+    <div id="progress">
+        <img src="~/Content/img/ajax-loader-2.gif" />
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

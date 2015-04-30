@@ -29,7 +29,7 @@ namespace Fabio.ProjetoTAC.Models
         [Display(Name = "Complemento")]
         public string complemento { get; set; }
 
-
+        [Display(Name = "Cidade")]
         public Cidade Cidades { get; set; }
         
 

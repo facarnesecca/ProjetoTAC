@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelProjetoStoreContainer" CdmEntityContainer="ModelProjetoContainer">
+    <EntitySetMapping Name="Cidades">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProjeto.Cidade)">
+        <MappingFragment StoreEntitySet="Cidades">
+          <ScalarProperty Name="idCidade" ColumnName="idCidade" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enderecos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProjeto.Endereco)">
+        <MappingFragment StoreEntitySet="Enderecos">
+          <ScalarProperty Name="IdEndereco" ColumnName="IdEndereco" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contatos">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProjeto.Contato)">
+        <MappingFragment StoreEntitySet="Contatos">
+          <ScalarProperty Name="IdContato" ColumnName="IdContato" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DtNacimento" ColumnName="DtNacimento" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="RG" ColumnName="RG" />
+          <ScalarProperty Name="Detalhes" ColumnName="Detalhes" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Compelmento" ColumnName="Compelmento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estados">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelProjeto.Estado)">
+        <MappingFragment StoreEntitySet="Estados">
+          <ScalarProperty Name="Iduf" ColumnName="Iduf" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EstadoCidade" TypeName="ModelProjeto.EstadoCidade" StoreEntitySet="Cidades">
+      <EndProperty Name="Estado">
+        <ScalarProperty Name="Iduf" ColumnName="Estado1_Iduf" />
+      </EndProperty>
+      <EndProperty Name="Cidade">
+        <ScalarProperty Name="idCidade" ColumnName="idCidade" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CidadeEndereco" TypeName="ModelProjeto.CidadeEndereco" StoreEntitySet="Enderecos">
+      <EndProperty Name="Cidade">
+        <ScalarProperty Name="idCidade" ColumnName="Cidade_idCidade" />
+      </EndProperty>
+      <EndProperty Name="Endereco">
+        <ScalarProperty Name="IdEndereco" ColumnName="IdEndereco" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EnderecoContato" TypeName="ModelProjeto.EnderecoContato" StoreEntitySet="Contatos">
+      <EndProperty Name="Endereco">
+        <ScalarProperty Name="IdEndereco" ColumnName="Endereco_IdEndereco" />
+      </EndProperty>
+      <EndProperty Name="Contato">
+        <ScalarProperty Name="IdContato" ColumnName="IdContato" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

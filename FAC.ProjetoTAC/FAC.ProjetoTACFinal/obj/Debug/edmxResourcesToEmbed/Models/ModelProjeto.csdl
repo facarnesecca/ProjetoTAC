@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelProjeto" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="ModelProjetoContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cidades" EntityType="ModelProjeto.Cidade" />
+    <EntitySet Name="Enderecos" EntityType="ModelProjeto.Endereco" />
+    <EntitySet Name="Contatos" EntityType="ModelProjeto.Contato" />
+    <EntitySet Name="Estados" EntityType="ModelProjeto.Estado" />
+    <AssociationSet Name="EstadoCidade" Association="ModelProjeto.EstadoCidade">
+      <End Role="Estado" EntitySet="Estados" />
+      <End Role="Cidade" EntitySet="Cidades" />
+    </AssociationSet>
+    <AssociationSet Name="CidadeEndereco" Association="ModelProjeto.CidadeEndereco">
+      <End Role="Cidade" EntitySet="Cidades" />
+      <End Role="Endereco" EntitySet="Enderecos" />
+    </AssociationSet>
+    <AssociationSet Name="EnderecoContato" Association="ModelProjeto.EnderecoContato">
+      <End Role="Endereco" EntitySet="Enderecos" />
+      <End Role="Contato" EntitySet="Contatos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Cidade">
+    <Key>
+      <PropertyRef Name="idCidade" />
+    </Key>
+    <Property Name="idCidade" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="true" />
+    <NavigationProperty Name="Estado1" Relationship="ModelProjeto.EstadoCidade" FromRole="Cidade" ToRole="Estado" />
+    <NavigationProperty Name="Endereco" Relationship="ModelProjeto.CidadeEndereco" FromRole="Cidade" ToRole="Endereco" />
+  </EntityType>
+  <EntityType Name="Endereco">
+    <Key>
+      <PropertyRef Name="IdEndereco" />
+    </Key>
+    <Property Name="IdEndereco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" />
+    <Property Name="CEP" Type="String" Nullable="false" />
+    <NavigationProperty Name="Cidade" Relationship="ModelProjeto.CidadeEndereco" FromRole="Endereco" ToRole="Cidade" />
+    <NavigationProperty Name="Contato" Relationship="ModelProjeto.EnderecoContato" FromRole="Endereco" ToRole="Contato" />
+  </EntityType>
+  <EntityType Name="Contato">
+    <Key>
+      <PropertyRef Name="IdContato" />
+    </Key>
+    <Property Name="IdContato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" />
+    <Property Name="Telefone" Type="String" Nullable="true" />
+    <Property Name="Email" Type="String" Nullable="true" />
+    <Property Name="DtNacimento" Type="DateTime" Nullable="true" />
+    <Property Name="CPF" Type="String" Unicode="true" Nullable="true" />
+    <Property Name="RG" Type="String" Nullable="true" />
+    <Property Name="Detalhes" Type="String" Nullable="true" />
+    <NavigationProperty Name="Endereco" Relationship="ModelProjeto.EnderecoContato" FromRole="Contato" ToRole="Endereco" />
+    <Property Name="Numero" Type="String" Nullable="true" />
+    <Property Name="Compelmento" Type="String" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="Iduf" />
+    </Key>
+    <Property Name="Iduf" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UF" Type="String" Nullable="false" />
+    <Property Name="Descricao" Type="String" Nullable="false" />
+    <NavigationProperty Name="Cidade1" Relationship="ModelProjeto.EstadoCidade" FromRole="Estado" ToRole="Cidade" />
+  </EntityType>
+  <Association Name="EstadoCidade">
+    <End Type="ModelProjeto.Estado" Role="Estado" Multiplicity="1" />
+    <End Type="ModelProjeto.Cidade" Role="Cidade" Multiplicity="*" />
+  </Association>
+  <Association Name="CidadeEndereco">
+    <End Type="ModelProjeto.Cidade" Role="Cidade" Multiplicity="1" />
+    <End Type="ModelProjeto.Endereco" Role="Endereco" Multiplicity="*" />
+  </Association>
+  <Association Name="EnderecoContato">
+    <End Type="ModelProjeto.Endereco" Role="Endereco" Multiplicity="1" />
+    <End Type="ModelProjeto.Contato" Role="Contato" Multiplicity="*" />
+  </Association>
+</Schema>

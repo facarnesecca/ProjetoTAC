@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelProjeto.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelProjetoStoreContainer">
+    <EntitySet Name="Cidades" EntityType="ModelProjeto.Store.Cidades" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Enderecos" EntityType="ModelProjeto.Store.Enderecos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contatos" EntityType="ModelProjeto.Store.Contatos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Estados" EntityType="ModelProjeto.Store.Estados" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="EstadoCidade" Association="ModelProjeto.Store.EstadoCidade">
+      <End Role="Estado" EntitySet="Estados" />
+      <End Role="Cidade" EntitySet="Cidades" />
+    </AssociationSet>
+    <AssociationSet Name="CidadeEndereco" Association="ModelProjeto.Store.CidadeEndereco">
+      <End Role="Cidade" EntitySet="Cidades" />
+      <End Role="Endereco" EntitySet="Enderecos" />
+    </AssociationSet>
+    <AssociationSet Name="EnderecoContato" Association="ModelProjeto.Store.EnderecoContato">
+      <End Role="Endereco" EntitySet="Enderecos" />
+      <End Role="Contato" EntitySet="Contatos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Cidades">
+    <Key>
+      <PropertyRef Name="idCidade" />
+    </Key>
+    <Property Name="idCidade" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Estado1_Iduf" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Enderecos">
+    <Key>
+      <PropertyRef Name="IdEndereco" />
+    </Key>
+    <Property Name="IdEndereco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CEP" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Cidade_idCidade" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contatos">
+    <Key>
+      <PropertyRef Name="IdContato" />
+    </Key>
+    <Property Name="IdContato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DtNacimento" Type="datetime" Nullable="true" />
+    <Property Name="CPF" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RG" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Detalhes" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Numero" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Compelmento" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Endereco_IdEndereco" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estados">
+    <Key>
+      <PropertyRef Name="Iduf" />
+    </Key>
+    <Property Name="Iduf" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UF" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="EstadoCidade">
+    <End Role="Estado" Type="ModelProjeto.Store.Estados" Multiplicity="1" />
+    <End Role="Cidade" Type="ModelProjeto.Store.Cidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Iduf" />
+      </Principal>
+      <Dependent Role="Cidade">
+        <PropertyRef Name="Estado1_Iduf" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CidadeEndereco">
+    <End Role="Cidade" Type="ModelProjeto.Store.Cidades" Multiplicity="1" />
+    <End Role="Endereco" Type="ModelProjeto.Store.Enderecos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cidade">
+        <PropertyRef Name="idCidade" />
+      </Principal>
+      <Dependent Role="Endereco">
+        <PropertyRef Name="Cidade_idCidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EnderecoContato">
+    <End Role="Endereco" Type="ModelProjeto.Store.Enderecos" Multiplicity="1" />
+    <End Role="Contato" Type="ModelProjeto.Store.Contatos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Endereco">
+        <PropertyRef Name="IdEndereco" />
+      </Principal>
+      <Dependent Role="Contato">
+        <PropertyRef Name="Endereco_IdEndereco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
