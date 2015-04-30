@@ -5,9 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="635f95c55f1f4031bc2e2cc5a769ff83" Name="Diagram1" >
-        <EntityTypeShape EntityType="ModelProjeto.Cidade" Width="1.5" PointX="2.625" PointY="1" />
-        <EntityTypeShape EntityType="ModelProjeto.Endereco" Width="1.5" PointX="5.375" PointY="0.625" />
-        <EntityTypeShape EntityType="ModelProjeto.Contato" Width="1.5" PointX="8.5" PointY="1.125" />
+        <EntityTypeShape EntityType="ModelProjeto.Cidade" Width="1.5" PointX="2.75" PointY="1" />
+        <EntityTypeShape EntityType="ModelProjeto.Endereco" Width="1.5" PointX="5.25" PointY="0.625" />
+        <EntityTypeShape EntityType="ModelProjeto.Contato" Width="1.5" PointX="7.75" PointY="1" />
         <EntityTypeShape EntityType="ModelProjeto.Estado" Width="1.5" PointX="0.5" PointY="0.875" />
         <AssociationConnector Association="ModelProjeto.EstadoCidade" />
         <AssociationConnector Association="ModelProjeto.CidadeEndereco" />

@@ -38,6 +38,9 @@ namespace FAC.ProjetoTACFinal.Controllers
         // GET: Cidades/Create
         public ActionResult Create()
         {
+
+            ViewBag.Estados = db.Estados.ToList();
+  
             return View();
         }
 
