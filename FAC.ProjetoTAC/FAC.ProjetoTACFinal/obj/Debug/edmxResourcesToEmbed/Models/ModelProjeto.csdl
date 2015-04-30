@@ -5,27 +5,14 @@
     <EntitySet Name="Enderecos" EntityType="ModelProjeto.Endereco" />
     <EntitySet Name="Contatos" EntityType="ModelProjeto.Contato" />
     <EntitySet Name="Estados" EntityType="ModelProjeto.Estado" />
-    <AssociationSet Name="EstadoCidade" Association="ModelProjeto.EstadoCidade">
-      <End Role="Estado" EntitySet="Estados" />
-      <End Role="Cidade" EntitySet="Cidades" />
-    </AssociationSet>
-    <AssociationSet Name="CidadeEndereco" Association="ModelProjeto.CidadeEndereco">
-      <End Role="Cidade" EntitySet="Cidades" />
-      <End Role="Endereco" EntitySet="Enderecos" />
-    </AssociationSet>
-    <AssociationSet Name="EnderecoContato" Association="ModelProjeto.EnderecoContato">
-      <End Role="Endereco" EntitySet="Enderecos" />
-      <End Role="Contato" EntitySet="Contatos" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Cidade">
     <Key>
       <PropertyRef Name="idCidade" />
     </Key>
     <Property Name="idCidade" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nome" Type="String" Nullable="true" />
-    <NavigationProperty Name="Estado1" Relationship="ModelProjeto.EstadoCidade" FromRole="Cidade" ToRole="Estado" />
-    <NavigationProperty Name="Endereco" Relationship="ModelProjeto.CidadeEndereco" FromRole="Cidade" ToRole="Endereco" />
+    <Property Name="Nome" Type="String" Nullable="false" />
+    <Property Name="iduf" Type="Int32" Nullable="true" />
   </EntityType>
   <EntityType Name="Endereco">
     <Key>
@@ -34,8 +21,7 @@
     <Property Name="IdEndereco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nome" Type="String" Nullable="false" />
     <Property Name="CEP" Type="String" Nullable="false" />
-    <NavigationProperty Name="Cidade" Relationship="ModelProjeto.CidadeEndereco" FromRole="Endereco" ToRole="Cidade" />
-    <NavigationProperty Name="Contato" Relationship="ModelProjeto.EnderecoContato" FromRole="Endereco" ToRole="Contato" />
+    <Property Name="idCidade" Type="Int32" Nullable="true" />
   </EntityType>
   <EntityType Name="Contato">
     <Key>
@@ -49,9 +35,9 @@
     <Property Name="CPF" Type="String" Unicode="true" Nullable="true" />
     <Property Name="RG" Type="String" Nullable="true" />
     <Property Name="Detalhes" Type="String" Nullable="true" />
-    <NavigationProperty Name="Endereco" Relationship="ModelProjeto.EnderecoContato" FromRole="Contato" ToRole="Endereco" />
     <Property Name="Numero" Type="String" Nullable="true" />
     <Property Name="Compelmento" Type="String" Nullable="true" />
+    <Property Name="idEndereco" Type="Int32" Nullable="true" />
   </EntityType>
   <EntityType Name="Estado">
     <Key>
@@ -60,18 +46,5 @@
     <Property Name="Iduf" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UF" Type="String" Nullable="false" />
     <Property Name="Descricao" Type="String" Nullable="false" />
-    <NavigationProperty Name="Cidade1" Relationship="ModelProjeto.EstadoCidade" FromRole="Estado" ToRole="Cidade" />
   </EntityType>
-  <Association Name="EstadoCidade">
-    <End Type="ModelProjeto.Estado" Role="Estado" Multiplicity="1" />
-    <End Type="ModelProjeto.Cidade" Role="Cidade" Multiplicity="*" />
-  </Association>
-  <Association Name="CidadeEndereco">
-    <End Type="ModelProjeto.Cidade" Role="Cidade" Multiplicity="1" />
-    <End Type="ModelProjeto.Endereco" Role="Endereco" Multiplicity="*" />
-  </Association>
-  <Association Name="EnderecoContato">
-    <End Type="ModelProjeto.Endereco" Role="Endereco" Multiplicity="1" />
-    <End Type="ModelProjeto.Contato" Role="Contato" Multiplicity="*" />
-  </Association>
 </Schema>

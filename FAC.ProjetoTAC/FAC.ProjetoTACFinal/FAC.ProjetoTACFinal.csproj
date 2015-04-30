@@ -124,32 +124,12 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Estados\Create.cshtml" />
-    <Content Include="Views\Estados\Delete.cshtml" />
-    <Content Include="Views\Estados\Details.cshtml" />
-    <Content Include="Views\Estados\Edit.cshtml" />
-    <Content Include="Views\Estados\Index.cshtml" />
-    <Content Include="Views\Cidades\Create.cshtml" />
-    <Content Include="Views\Cidades\Delete.cshtml" />
-    <Content Include="Views\Cidades\Details.cshtml" />
-    <Content Include="Views\Cidades\Edit.cshtml" />
-    <Content Include="Views\Cidades\Index.cshtml" />
-    <Content Include="Views\Enderecos\Create.cshtml" />
-    <Content Include="Views\Enderecos\Delete.cshtml" />
-    <Content Include="Views\Enderecos\Details.cshtml" />
-    <Content Include="Views\Enderecos\Edit.cshtml" />
-    <Content Include="Views\Enderecos\Index.cshtml" />
-    <Content Include="Views\Contatos\Create.cshtml" />
-    <Content Include="Views\Contatos\Delete.cshtml" />
-    <Content Include="Views\Contatos\Details.cshtml" />
-    <Content Include="Views\Contatos\Edit.cshtml" />
-    <Content Include="Views\Contatos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CidadesController.cs" />
     <Compile Include="Controllers\ContatosController.cs" />
-    <Compile Include="Controllers\EnderecosController.cs" />
+    <Compile Include="Controllers\EnderecoesController.cs" />
     <Compile Include="Controllers\EstadosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -183,7 +163,6 @@
       <DependentUpon>ModelProjeto.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\Estado.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -194,6 +173,26 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Views\Estados\Create.cshtml" />
+    <Content Include="Views\Estados\Delete.cshtml" />
+    <Content Include="Views\Estados\Details.cshtml" />
+    <Content Include="Views\Estados\Edit.cshtml" />
+    <Content Include="Views\Estados\Index.cshtml" />
+    <Content Include="Views\Cidades\Create.cshtml" />
+    <Content Include="Views\Cidades\Delete.cshtml" />
+    <Content Include="Views\Cidades\Details.cshtml" />
+    <Content Include="Views\Cidades\Edit.cshtml" />
+    <Content Include="Views\Cidades\Index.cshtml" />
+    <Content Include="Views\Enderecoes\Create.cshtml" />
+    <Content Include="Views\Enderecoes\Delete.cshtml" />
+    <Content Include="Views\Enderecoes\Details.cshtml" />
+    <Content Include="Views\Enderecoes\Edit.cshtml" />
+    <Content Include="Views\Enderecoes\Index.cshtml" />
+    <Content Include="Views\Contatos\Create.cshtml" />
+    <Content Include="Views\Contatos\Delete.cshtml" />
+    <Content Include="Views\Contatos\Details.cshtml" />
+    <Content Include="Views\Contatos\Edit.cshtml" />
+    <Content Include="Views\Contatos\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -203,7 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\DropDownList\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

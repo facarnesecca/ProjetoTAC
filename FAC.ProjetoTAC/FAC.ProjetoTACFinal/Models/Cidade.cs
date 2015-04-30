@@ -14,15 +14,8 @@ namespace FAC.ProjetoTACFinal.Models
     
     public partial class Cidade
     {
-        public Cidade()
-        {
-            this.Endereco = new HashSet<Endereco>();
-        }
-    
         public int idCidade { get; set; }
         public string Nome { get; set; }
-    
-        public virtual Estado Estado1 { get; set; }
-        public virtual ICollection<Endereco> Endereco { get; set; }
+        public Nullable<int> iduf { get; set; }
     }
 }

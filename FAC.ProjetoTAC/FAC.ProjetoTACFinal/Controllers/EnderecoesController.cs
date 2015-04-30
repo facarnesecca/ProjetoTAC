@@ -10,17 +10,17 @@ using FAC.ProjetoTACFinal.Models;
 
 namespace FAC.ProjetoTACFinal.Controllers
 {
-    public class EnderecosController : Controller
+    public class EnderecoesController : Controller
     {
         private ModelProjetoContainer db = new ModelProjetoContainer();
 
-        // GET: Enderecos
+        // GET: Enderecoes
         public ActionResult Index()
         {
             return View(db.Enderecos.ToList());
         }
 
-        // GET: Enderecos/Details/5
+        // GET: Enderecoes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,18 +35,18 @@ namespace FAC.ProjetoTACFinal.Controllers
             return View(endereco);
         }
 
-        // GET: Enderecos/Create
+        // GET: Enderecoes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Enderecos/Create
+        // POST: Enderecoes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdEndereco,Nome,Numero,Complemento,idCidade,CEP")] Endereco endereco)
+        public ActionResult Create([Bind(Include = "IdEndereco,Nome,CEP")] Endereco endereco)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace FAC.ProjetoTACFinal.Controllers
             return View(endereco);
         }
 
-        // GET: Enderecos/Edit/5
+        // GET: Enderecoes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,12 +73,12 @@ namespace FAC.ProjetoTACFinal.Controllers
             return View(endereco);
         }
 
-        // POST: Enderecos/Edit/5
+        // POST: Enderecoes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdEndereco,Nome,Numero,Complemento,idCidade,CEP")] Endereco endereco)
+        public ActionResult Edit([Bind(Include = "IdEndereco,Nome,CEP")] Endereco endereco)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace FAC.ProjetoTACFinal.Controllers
             return View(endereco);
         }
 
-        // GET: Enderecos/Delete/5
+        // GET: Enderecoes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace FAC.ProjetoTACFinal.Controllers
             return View(endereco);
         }
 
-        // POST: Enderecos/Delete/5
+        // POST: Enderecoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

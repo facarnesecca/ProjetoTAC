@@ -9,9 +9,6 @@
         <EntityTypeShape EntityType="ModelProjeto.Endereco" Width="1.5" PointX="5.25" PointY="0.625" />
         <EntityTypeShape EntityType="ModelProjeto.Contato" Width="1.5" PointX="7.75" PointY="1" />
         <EntityTypeShape EntityType="ModelProjeto.Estado" Width="1.5" PointX="0.5" PointY="0.875" />
-        <AssociationConnector Association="ModelProjeto.EstadoCidade" />
-        <AssociationConnector Association="ModelProjeto.CidadeEndereco" />
-        <AssociationConnector Association="ModelProjeto.EnderecoContato" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

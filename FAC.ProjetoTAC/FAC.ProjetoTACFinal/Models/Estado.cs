@@ -14,15 +14,8 @@ namespace FAC.ProjetoTACFinal.Models
     
     public partial class Estado
     {
-        public Estado()
-        {
-            this.Cidade1 = new HashSet<Cidade>();
-        }
-    
         public int Iduf { get; set; }
         public string UF { get; set; }
         public string Descricao { get; set; }
-    
-        public virtual ICollection<Cidade> Cidade1 { get; set; }
     }
 }

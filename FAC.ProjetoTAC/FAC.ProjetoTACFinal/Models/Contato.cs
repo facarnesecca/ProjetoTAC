@@ -24,7 +24,6 @@ namespace FAC.ProjetoTACFinal.Models
         public string Detalhes { get; set; }
         public string Numero { get; set; }
         public string Compelmento { get; set; }
-    
-        public virtual Endereco Endereco { get; set; }
+        public Nullable<int> idEndereco { get; set; }
     }
 }

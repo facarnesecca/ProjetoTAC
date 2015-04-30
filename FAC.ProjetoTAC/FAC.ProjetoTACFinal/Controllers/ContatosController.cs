@@ -46,7 +46,7 @@ namespace FAC.ProjetoTACFinal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdContato,Nome,Telefone,Email,DtNacimento,CPF,RG,Detalhes")] Contato contato)
+        public ActionResult Create([Bind(Include = "IdContato,Nome,Telefone,Email,DtNacimento,CPF,RG,Detalhes,Numero,Compelmento")] Contato contato)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace FAC.ProjetoTACFinal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdContato,Nome,Telefone,Email,DtNacimento,CPF,RG,Detalhes")] Contato contato)
+        public ActionResult Edit([Bind(Include = "IdContato,Nome,Telefone,Email,DtNacimento,CPF,RG,Detalhes,Numero,Compelmento")] Contato contato)
         {
             if (ModelState.IsValid)
             {

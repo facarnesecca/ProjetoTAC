@@ -6,6 +6,7 @@
         <MappingFragment StoreEntitySet="Cidades">
           <ScalarProperty Name="idCidade" ColumnName="idCidade" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="iduf" ColumnName="iduf" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -15,6 +16,7 @@
           <ScalarProperty Name="IdEndereco" ColumnName="IdEndereco" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="idCidade" ColumnName="idCidade" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -31,6 +33,7 @@
           <ScalarProperty Name="Detalhes" ColumnName="Detalhes" />
           <ScalarProperty Name="Numero" ColumnName="Numero" />
           <ScalarProperty Name="Compelmento" ColumnName="Compelmento" />
+          <ScalarProperty Name="idEndereco" ColumnName="idEndereco" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -43,29 +46,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="EstadoCidade" TypeName="ModelProjeto.EstadoCidade" StoreEntitySet="Cidades">
-      <EndProperty Name="Estado">
-        <ScalarProperty Name="Iduf" ColumnName="Estado1_Iduf" />
-      </EndProperty>
-      <EndProperty Name="Cidade">
-        <ScalarProperty Name="idCidade" ColumnName="idCidade" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="CidadeEndereco" TypeName="ModelProjeto.CidadeEndereco" StoreEntitySet="Enderecos">
-      <EndProperty Name="Cidade">
-        <ScalarProperty Name="idCidade" ColumnName="Cidade_idCidade" />
-      </EndProperty>
-      <EndProperty Name="Endereco">
-        <ScalarProperty Name="IdEndereco" ColumnName="IdEndereco" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="EnderecoContato" TypeName="ModelProjeto.EnderecoContato" StoreEntitySet="Contatos">
-      <EndProperty Name="Endereco">
-        <ScalarProperty Name="IdEndereco" ColumnName="Endereco_IdEndereco" />
-      </EndProperty>
-      <EndProperty Name="Contato">
-        <ScalarProperty Name="IdContato" ColumnName="IdContato" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>
