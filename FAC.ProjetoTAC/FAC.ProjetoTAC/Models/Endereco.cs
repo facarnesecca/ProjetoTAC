@@ -10,7 +10,7 @@ namespace Fabio.ProjetoTAC.Models
     public class Endereco
     {
         [Key]
-        public int id { get; set; }
+        public int idEndereco { get; set; }
 
         
         [Display (Name = "CEP")]
@@ -29,12 +29,9 @@ namespace Fabio.ProjetoTAC.Models
         [Display(Name = "Complemento")]
         public string complemento { get; set; }
 
-            
-        public int idcidade { get; set; }
 
-        [ForeignKey("idcidade"), InverseProperty("Cidade")]
-        public virtual Cidade Cidade{ get; set; }              
-
+        public Cidade Cidades { get; set; }
+        
 
     }
 }

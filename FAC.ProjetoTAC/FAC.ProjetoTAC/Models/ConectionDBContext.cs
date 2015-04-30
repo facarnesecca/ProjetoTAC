@@ -19,5 +19,7 @@ namespace FAC.ProjetoTAC.Models
         }
 
         public DbSet<Cidade> Cidades { get; set; }
+
+        public DbSet<Endereco> Enderecos { get; set; }
     }
 }

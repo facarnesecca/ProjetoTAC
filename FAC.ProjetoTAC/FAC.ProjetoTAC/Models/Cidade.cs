@@ -24,7 +24,7 @@ namespace Fabio.ProjetoTAC.Models
         [EnumDataType(typeof(EstadosUF))]
         public EstadosUF UF2 { get; set; }
 
-
+        public virtual IEquatable<Endereco> Enderecos { get; set; }
 
         public enum EstadosUF
         {
